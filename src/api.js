@@ -1,6 +1,6 @@
-const API_URL = "https://notes-backend-tawny.vercel.app"; 
+// const API_URL = "https://notes-backend-tawny.vercel.app"; 
 
-// const API_URL = 'http://localhost:4000'
+const API_URL = 'http://localhost:4000'
 export async function login(email, password) {
   const res = await fetch(`${API_URL}/auth/login`, {
     method: "POST",
@@ -48,6 +48,19 @@ export async function deleteNote(token, id) {
   });
   return res.json();
 }
+
+export const updateNote = async (token, id, data) => {
+  const res = await fetch(`${API_URL}/notes/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  });
+  return res.json();
+};
+
 
 export async function upgradeTenant(token, tenantSlug) {
   const res = await fetch(`${API_URL}/tenants/${tenantSlug}/upgrade`, {
