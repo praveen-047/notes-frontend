@@ -1,6 +1,6 @@
-// const API_URL = "https://notes-backend-tawny.vercel.app"; 
+const API_URL = "https://notes-backend-tawny.vercel.app"; 
 
-const API_URL = 'http://localhost:4000'
+// const API_URL = 'http://localhost:4000'
 export async function login(email, password) {
   const res = await fetch(`${API_URL}/auth/login`, {
     method: "POST",
