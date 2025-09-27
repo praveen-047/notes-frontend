@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Preahvihear&display=swap");
+
+* {
+  font-family: "Preahvihear", sans-serif;
+  font-style: normal;
+  box-sizing: border-box;
+}
+.dashboard-container {
+  width: 100vw;
+  min-height: 100vh;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3b9a9c;
+  padding: 10px 20px;
+}
+.dashboard-header {
+  margin: 0;
+  font-size: 25px;
+  color: rgb(0, 0, 0);
+}
+
+.logout-btn {
+  border: 0px;
+  border-radius: 20px;
+  font-size: 13px;
+  background-color: antiquewhite;
+  padding: 5px 15px;
+  margin: 0;
+  font-weight: 600;
+}
+.admin-container{
+    padding:20px;
+}
+.members-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.member-item {
+  background-color: #ffffff;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.member-item p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+
+
+
+
+.upgrade-btn {
+  background-color: #1890ff;
+  color: #fff;
+  border: 0px;
+  border-radius: 10px;
+  font-size: 10px;
+}
+
+.upgrade-btn:hover {
+  background-color: #147ad6;
+}
+
+@media screen and (min-width: 768px) {
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header {
+    width: 100vw;
+    justify-content: space-evenly;
+  }
+  .dashboard-header {
+    font-size: 28px;
+  }
+}

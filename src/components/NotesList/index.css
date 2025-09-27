@@ -1,0 +1,68 @@
+.notes-ul-container {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px 15px;
+}
+.notes-li-container {
+  list-style-type: none;
+}
+.notes-div {
+  max-width: 180px;
+  background-color: aqua;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.content {
+  font-size: 15px;
+  margin: 8px 0px;
+  line-height: 20px;
+}
+.time-delete-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.time {
+  margin: 0;
+  font-size: 12px;
+}
+.delete-icon {
+  font-size: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .notes-ul-container{
+        width: 70%;
+        justify-content: center;
+    }
+  .notes-div {
+    max-width: 200px;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+  .content {
+    font-size: 19px;
+    margin: 12px 0px;
+    line-height: 25px;
+  }
+
+  .time {
+    font-size: 14px;
+  }
+  .delete-icon {
+    font-size: 23px;
+  }
+}

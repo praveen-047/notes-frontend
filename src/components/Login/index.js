@@ -1,47 +1,60 @@
 import { useState } from "react";
-import { login } from "../api";
+import { login } from "../../api";
 import { useNavigate } from "react-router-dom";
+import "./index.css";
 
 export default function Login({ onLogin }) {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  setLoading(true); // start loader
+  try {
     const data = await login(email, password);
     if (data.token && data.user) {
-      onLogin(data); // sets token + tenant in App
+      onLogin(data);
       navigate("/"); // redirect to dashboard
     } else {
       alert(data.error || "Invalid credentials");
     }
-  };
+  } catch (err) {
+    console.error("Login error:", err);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false); // stop loader
+  }
+};
+
 
   return (
-    <div style={{ maxWidth: 400, margin: "50px auto" }}>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="login-main-container">
+      <div className="login-container">
+      <h2 className="login-title">Login</h2>
+      <form className="login-form" onSubmit={handleSubmit}>
         <input
           type="email"
+          className="login-input"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           required
-          style={{ width: "100%", marginBottom: 10, padding: 8 }}
         />
         <input
           type="password"
+          className="login-input"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           required
-          style={{ width: "100%", marginBottom: 10, padding: 8 }}
         />
-        <button type="submit" style={{ width: "100%", padding: 10 }}>
-          Login
-        </button>
+        <button type="submit" className="login-btn" disabled={loading}>
+  {loading ? "Logging in..." : "Login"}
+</button>
       </form>
+    </div>
     </div>
   );
 }
